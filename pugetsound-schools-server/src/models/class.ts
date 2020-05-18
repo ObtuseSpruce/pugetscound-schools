@@ -1,3 +1,6 @@
+/**
+ * Class Model
+ */
 import * as mongoose from 'mongoose'
 import {Schema, Document} from 'mongoose'
 import {IUser} from './user'
