@@ -1,53 +1,23 @@
-let mongoose = require('mongoose')
-let bcrypt = require('bcryptjs')
-
-// Create user schema
-let userSchema = new mongoose.Schema({
-    firstName: {
-        type: String,
-        required: true
-    },
-    lastName: String,
+"use strict";
+exports.__esModule = true;
+var mongoose = require("mongoose");
+var mongoose_1 = require("mongoose");
+var UserSchema = new mongoose_1.Schema({
+    firstname: { type: String, required: true },
+    lastname: { type: String, required: true },
+    password: { type: String, required: true },
     email: {
         type: String,
         required: true,
-        unique: true,
-        minlength: 6
+        unique: true
     },
-    password: {
-        type: String,
-        required: true,
-        minlength: 6
-    },
-    pic: String,
-    admin: {
-        type: Boolean,
-        default: false
+    birthdate: { type: Date, "default": null },
+    admin: { type: Boolean, "default": false },
+    position: { type: String, required: true },
+    grade: { type: String, "default": 'N/A' },
+    classes: {
+        type: [mongoose_1.Schema.Types.ObjectId],
+        "default": []
     }
-})
-
-//hash passwords
-userSchema.pre('save', function(anything) {
-    //make sure its new, as opposed to modified
-    if(this.isNew) {
-        this.password = bcrypt.hashSync(this.password, 12)
-    }
-    anything()
-})
-
-//Make a JSON representation of the user (for sending on the JWT payload)
-userSchema.set('toJSON', {
-    transform: (doc, user) => {
-        delete user.password
-        delete user.__v
-        return user
-    }
-})
-
-//make a function that compares passwords
-userSchema.methods.validPassword = function (typedPassword) {
-    return bcrypt.compareSync(typedPassword, this.password)
-}
-
-// TODO: Export user model
-module.exports = mongoose.model('User', userSchema)
+});
+exports["default"] = mongoose.model('User', UserSchema);
