@@ -28,4 +28,4 @@ var AssignmentSchema = new mongoose_1.Schema({
     dateAssigned: { type: Date, default: null },
     dateDue: { type: Date, default: null },
 });
-exports.default = mongoose.model('User', AssignmentSchema);
+module.exports = mongoose.model('Assignment', AssignmentSchema);
