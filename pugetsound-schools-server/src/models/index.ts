@@ -1,6 +1,10 @@
-import * as mongoose from 'mongoose'
+let mongoose = require('mongoose')
 
-mongoose.connect('mongodb://localhost/school')
+mongoose.connect('mongodb://localhost/school', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true
+})
 
 module.exports.Class = require('./class')
 module.exports.User = require('./user')
