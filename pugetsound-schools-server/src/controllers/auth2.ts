@@ -26,7 +26,7 @@ router.post('/login', (req:Request, res:Response) => {
         })
         res.send({ token })
     })
-    .catch(err => {
+    .catch((err:Error) => {
         console.log('error in POST', err)
         res.send(503).send({ message: 'Server-side or DB error'})
     })

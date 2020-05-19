@@ -13,6 +13,7 @@ export interface IUser extends Document {
     position: string;
     grade: string;
     classes: IClass['_id'][];
+    validPassword(typedPassword:string): boolean;
 }
 
 let userSchema:Schema = new Schema({
