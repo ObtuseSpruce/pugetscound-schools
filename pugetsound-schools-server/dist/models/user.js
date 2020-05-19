@@ -21,7 +21,8 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var mongoose = __importStar(require("mongoose"));
 var mongoose_1 = require("mongoose");
-var UserSchema = new mongoose_1.Schema({
+var bcrypt = require('bcryptjs');
+var userSchema = new mongoose_1.Schema({
     firstname: { type: String, required: true },
     lastname: { type: String, required: true },
     password: { type: String, required: true },
@@ -39,4 +40,28 @@ var UserSchema = new mongoose_1.Schema({
         default: []
     }
 });
-exports.default = mongoose.model('User', UserSchema);
+// Hash passwords
+userSchema.pre('save', function (done) {
+    // Make sure it's new as opposed to modified
+    if (this.isNew) {
+        this.password = bcrypt.hashSync(this.password, 12);
+    }
+    // Indicate we are good to move on
+    done();
+});
+// Make a json representation of the user (for sending on the JWT payload)
+// userSchema.set<IUser>('toJSON', {
+//     transfrom: (doc:any, user:any) => {
+//         delete user.password
+//         delete user.lastname
+//         delete user.pic
+//         delete user.__v
+//         return user
+//     }
+// })
+// Make a function that compares passwords
+userSchema.methods.validPassword = function (typedPassword) {
+    // typedPassword: Plain text, just typed in by user
+    return bcrypt.compareSync(typedPassword, this.password);
+};
+module.exports = mongoose.model('User', userSchema);

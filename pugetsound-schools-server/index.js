@@ -24,8 +24,11 @@ app.use(express.json()) // Accept data from fetch (or any AJAX call)
 // Routes
 app.use('/auth', require('./dist/controllers/auth'))
 app.use('/profile', expressJwt({secret: process.env.JWT_SECRET}), require('./dist/controllers/profile'))
+app.use('/classes', require('./dist/controllers/classes'))
 
-
+app.get('/', (req,res) => {
+  res.send({ message: "Welcome to the base route!"})
+})
 app.get('*', (req, res) => {
   res.status(404).send({ message: 'Not Found' })
 })

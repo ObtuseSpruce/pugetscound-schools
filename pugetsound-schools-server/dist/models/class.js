@@ -27,12 +27,13 @@ var mongoose_1 = require("mongoose");
 var ClassSchema = new mongoose_1.Schema({
     classname: { type: String, required: true },
     subject: { type: String, required: true },
-    teacher: { type: Number, required: true },
+    teacher: { type: mongoose_1.Schema.Types.ObjectId, required: true },
     students: {
         type: [{ student: mongoose_1.Schema.Types.ObjectId, grade: String }],
-        required: true,
-        minLength: 2
+        default: []
     },
-    assignments: { type: [mongoose_1.Schema.Types.ObjectId], default: [] }
+    assignments: { type: [mongoose_1.Schema.Types.ObjectId], default: [] },
+    startdate: { type: Date, default: null },
+    enddate: { type: Date, default: null }
 });
-exports.default = mongoose.model('Class', ClassSchema);
+module.exports = mongoose.model('Class', ClassSchema);
