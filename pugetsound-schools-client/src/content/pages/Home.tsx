@@ -1,11 +1,9 @@
 import React from 'react'
 
-const Home: React.FC<Array<string>> = (props) => {
-  props = ["bingo"]
-  
+const Home : React.FC<{  }> = () =>{
   return (
     <div>
-      <h2>HOME STUB2</h2>
+      <h2>HOME  STUB TSX </h2>
     </div>
   )
 }
