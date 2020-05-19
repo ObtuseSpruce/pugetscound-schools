@@ -1,11 +1,9 @@
-// Router will 'use' assignments
 import {Request, Response, Router} from 'express'
 let db = require('../models')
 import {IClass} from '../models/class'
 
+//let router = require('express').Router()
 const router = Router()
-
-//router.use('/:classname/assignments', require('./assignments'))
 
 // POST a new class
 router.post('/', (req:Request, res:Response) => {
@@ -18,7 +16,7 @@ router.post('/', (req:Request, res:Response) => {
     })
 })
 
-// GET a class by ID
+// GET a class by ID 
 router.get('/:id', (req:Request, res:Response) => {
     db.Class.findOne({_id:req.params.id})
     .then((c:IClass) => {

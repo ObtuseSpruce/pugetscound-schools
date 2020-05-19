@@ -1,10 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-// Router will 'use' assignments
 var express_1 = require("express");
 var db = require('../models');
+//let router = require('express').Router()
 var router = express_1.Router();
-//router.use('/:classname/assignments', require('./assignments'))
 // POST a new class
 router.post('/', function (req, res) {
     db.Class.create(req.body)
@@ -15,7 +14,7 @@ router.post('/', function (req, res) {
         console.log("Error:", err);
     });
 });
-// GET a class by ID
+// GET a class by ID 
 router.get('/:id', function (req, res) {
     db.Class.findOne({ _id: req.params.id })
         .then(function (c) {

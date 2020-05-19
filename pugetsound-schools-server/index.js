@@ -25,6 +25,7 @@ app.use(express.json()) // Accept data from fetch (or any AJAX call)
 app.use('/auth', require('./dist/controllers/auth'))
 app.use('/profile', expressJwt({secret: process.env.JWT_SECRET}), require('./dist/controllers/profile'))
 app.use('/classes', require('./dist/controllers/classes'))
+app.use('/assignments', require('./dist/controllers/assignments'))
 
 app.get('/', (req,res) => {
   res.send({ message: "Welcome to the base route!"})
