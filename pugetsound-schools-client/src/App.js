@@ -10,6 +10,8 @@ import Footer from './nav/Footer'
 import Header from './nav/Header'
 import Nav from './nav/Nav'
 
+import TestFCalendar from './TestFCalendar'
+
 const App = props => {
   // Declare state variables
   let [user, setUser] = useState(null)
@@ -47,6 +49,7 @@ const App = props => {
         <Header />
         <main>
           <Content user={user} updateToken={updateToken}/>
+          <TestFCalendar />
         </main>
         <Footer />
       </div>
