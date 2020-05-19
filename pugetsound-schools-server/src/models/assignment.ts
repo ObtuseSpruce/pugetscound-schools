@@ -19,4 +19,4 @@ const AssignmentSchema:Schema = new Schema({
     dateDue:    {type:Date, default:null},
 })
 
-export default mongoose.model<IAssignment>('User', AssignmentSchema)
+module.exports = mongoose.model<IAssignment>('Assignment', AssignmentSchema)
