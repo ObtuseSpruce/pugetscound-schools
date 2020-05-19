@@ -25,6 +25,7 @@ const TestFCalendar: React.FC<{ props: any }> = props => {
                     center: "title",
                     right: "dayGridMonth,timeGridWeek,timeGridDay"
                 }}
+                selectable={true}
                 editable={true}
                 plugins={[dayGridPlugin, interactionPlugin, timeGridPlugin]}
                 events={events}

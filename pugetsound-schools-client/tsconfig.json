@@ -20,6 +20,6 @@
     "allowJs": true
   },
   "include": [
-    "src"
+    "src", "extras/Home.js", "extras/Header.js", "extras/Footer.js", "extras/Nav.js"
   ]
 }
