@@ -46,4 +46,6 @@ const Profile = props => {
   )
 }
 
+let change = "this has been changed"
+
 export default Profile
