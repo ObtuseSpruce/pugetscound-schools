@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-.App-header {
+/* .App-header {
   background-color: lightslategray;
   min-height: 20vh;
   display: flex;
@@ -11,51 +11,52 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
 main {
+  margin-top: 30px;
   padding: 50px 0;
+  height: 100vh;
 }
 
 footer {
-  background-color: #282c34;
-  color: white;
+  background-color: #fdd835;
+  color: #f57c00;
   font-size: 16px;
   padding: 15px;
+  margin-top:calc(5% + 60px);
+  bottom: 0;
 }
 
 nav {
-  background-color: #282c34;
-  padding: 2px;
+  text-align: left;
+  height: 8vh;
+  background-color: #fdd835;
+  padding: 5px;
 }
-
-nav ul {
-  list-style-type: none;
+#homeNav {
+  margin-left: 10px;
 }
-
-nav li {
+.logoName{
+  text-align: right;
+}
+.buttonNav {
   display: inline;
   color: white;
-  margin-right: 25px;
+  margin-right: 15px;
 }
 
 nav a,
 nav a:visited {
   text-decoration: none;
   font-size: 22px;
-  color: mediumspringgreen;
+  color: white;
 }
 
 nav a:hover {
-  color: hotpink;
+  color: black;
 }
 
 .red {
   color: red;
 }
-
-.HomeButton {
-  color: #e040fb;
-}
-
-

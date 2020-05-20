@@ -1,5 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import {AppBar, Button, Typography} from '@material-ui/core'
+import FrontTheme from '../content/pages/FrontTheme'
+import { ThemeProvider } from '@material-ui/core/styles';
+
 
 interface IUser_UpdateToken { 
     user: Object | null, 
@@ -18,12 +22,16 @@ const Nav: React.FC< IUser_UpdateToken > = props => {
 
   let links = (
     <span>
-      <li>
-        <Link to="/login">Login</Link>
-      </li>
-      <li>
-        <Link to="/signup">Signup</Link>
-      </li>
+      <div className="buttonNav">
+        <Button variant="contained" color="primary" className="buttonNav">
+          <Link to="/login">Login</Link>
+        </Button>
+      </div>
+      <div className="buttonNav">
+        <Button variant="contained" color="primary" className="buttonNav">
+          <Link to="/signup">Signup</Link>
+        </Button>
+      </div>
     </span>
   )
 
@@ -31,24 +39,32 @@ const Nav: React.FC< IUser_UpdateToken > = props => {
  if (props.user){
    links =(
      <span>
-        <li>
+      <div className="buttonNav">
+        <Button variant="contained" color="primary" className="buttonNav">
           <Link to="/profile">profile</Link>
-        </li>
-        <li>
+        </Button>
+      </div>
+      <div className="buttonNav">
+        <Button variant="contained" color="primary" className="buttonNav">
           <a href='/' onClick={handleLogout}>Logout</a>
-        </li>
+        </Button>
+      </div>
      </span>
    )
  }
   return (
-    <nav>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        {links}
-      </ul>
-    </nav>
+    <ThemeProvider theme={FrontTheme}>
+      <AppBar>
+        <nav>     
+          <div className="buttonNav" id="homeNav">
+            <Button variant="contained" color="primary">
+              <Link to="/">Home</Link>
+            </Button>
+          </div>
+          {links}
+        </nav>
+      </AppBar>
+    </ThemeProvider>
   )
 }
 
