@@ -1,13 +1,17 @@
 import React from 'react'
-import 'antd/dist/antd.css';
-import {Button} from 'antd';
+import {Button, Typography} from '@material-ui/core'
+import FrontTheme from './FrontTheme'
+import { ThemeProvider } from '@material-ui/core/styles';
+
 
 
 const Home : React.FC<{}> = () =>{
   return (
-    <div>
-      <Button type="dashed"> WELCOME!</Button>
-    </div>
+    <ThemeProvider theme={FrontTheme}>
+      <div>
+        <Typography variant="h1" color="primary">Hello World!</Typography>
+      </div>
+    </ThemeProvider>
   )
 }
 

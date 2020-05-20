@@ -1,9 +1,10 @@
 import React from 'react'
+import {Typography} from '@material-ui/core'
 
 const Footer : React.FC<{  }> = () =>{
   return (
     <footer>
-      Made by Lars, Ruchita and Will in 2020
+      <Typography variant="body1">Made by Lars, Ruchita and Will 2020</Typography>
     </footer>
   )
 }
